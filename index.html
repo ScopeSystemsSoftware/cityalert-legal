@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Declarație de Confidențialitate — City Alert</title>
+<meta name="description" content="Cum colectează și prelucrează aplicația City Alert datele cu caracter personal ale cetățenilor și ale personalului Primăriei, inclusiv procedura de ștergere a contului.">
+<style>
+  :root { --albastru:#2563eb; --albastru7:#1d4ed8; --indigo7:#4338ca; --ink:#0f172a;
+          --gri6:#475569; --gri5:#64748b; --gri4:#94a3b8; --gri1:#f1f5f9; --gri05:#f8fafc; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; font-family:-apple-system,"Segoe UI",Roboto,Inter,sans-serif; color:var(--ink);
+         background:#fff; line-height:1.65; -webkit-font-smoothing:antialiased; }
+  a { color:var(--albastru); text-decoration:none; } a:hover { text-decoration:underline; }
+
+  header.bara { position:sticky; top:0; z-index:20; background:rgba(255,255,255,.9);
+    backdrop-filter:blur(12px); border-bottom:1px solid var(--gri1); }
+  .bara-in { max-width:64rem; margin:0 auto; padding:0 1.5rem; height:4rem;
+    display:flex; align-items:center; justify-content:space-between; gap:2rem; }
+  .marca { display:flex; align-items:center; gap:.65rem; }
+  .marca img { width:2rem; height:2rem; border-radius:.5rem; border:1px solid var(--gri1); background:#fff; }
+  .marca b { font-weight:700; letter-spacing:-.01em; }
+  .marca span { color:var(--gri4); font-weight:400; }
+  .bara nav a { padding:.5rem .75rem; border-radius:.5rem; font-size:.875rem; font-weight:500;
+    color:var(--ink); background:var(--gri05); }
+
+  .erou { position:relative; overflow:hidden; color:#fff;
+    background:linear-gradient(135deg, var(--albastru7), var(--indigo7)); }
+  .erou::before { content:""; position:absolute; top:-6rem; right:-6rem; width:24rem; height:24rem;
+    border-radius:50%; background:rgba(255,255,255,.05); filter:blur(48px); }
+  .erou::after { content:""; position:absolute; bottom:0; left:0; width:18rem; height:18rem;
+    border-radius:50%; background:rgba(49,46,129,.3); filter:blur(48px); }
+  .erou-in { position:relative; max-width:72rem; margin:0 auto; padding:3.5rem 1.5rem; }
+  .spranceana { font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.18em;
+    color:#bfdbfe; margin-bottom:.75rem; }
+  .erou h1 { font-size:clamp(1.9rem,5vw,2.5rem); font-weight:800; letter-spacing:-.02em; margin:0; }
+  .erou .sub { color:#dbeafe; margin-top:.5rem; font-size:.9rem; }
+  .pastila { display:inline-block; margin-top:1.2rem; font-size:.75rem; font-weight:500; color:#bfdbfe;
+    background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+    padding:.375rem .75rem; border-radius:999px; backdrop-filter:blur(4px); }
+
+  .continut { max-width:72rem; margin:0 auto; padding:3.5rem 1.5rem; }
+  @media(min-width:64rem) { .continut { display:grid; grid-template-columns:240px 1fr; gap:4rem; } }
+  aside { display:none; }
+  @media(min-width:64rem) { aside { display:block; } }
+  .lipici { position:sticky; top:6rem; }
+  .titlu-toc { font-size:.75rem; font-weight:600; text-transform:uppercase; letter-spacing:.18em;
+    color:var(--gri4); margin-bottom:1rem; }
+  .toc { display:flex; flex-direction:column; gap:.125rem; max-height:calc(100vh - 140px); overflow-y:auto; }
+  .toc a { display:flex; align-items:center; gap:.6rem; padding:.375rem .75rem; border-radius:.5rem;
+    font-size:.875rem; color:var(--gri5); }
+  .toc a:hover { color:var(--ink); background:var(--gri05); text-decoration:none; }
+  .nr-toc { font-size:.75rem; font-weight:700; color:#cbd5e1; width:1.25rem; text-align:right; flex-shrink:0; }
+  .toc a:hover .nr-toc { color:var(--albastru); }
+  .trunchi { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+
+  .sectiuni { min-width:0; display:flex; flex-direction:column; gap:3rem; }
+  section { scroll-margin-top:6rem; }
+  .cap-sectiune { display:flex; align-items:center; gap:.75rem; margin-bottom:1.25rem; }
+  .insigna { display:flex; align-items:center; justify-content:center; width:2.25rem; height:2.25rem;
+    border-radius:.75rem; background:var(--albastru); color:#fff; font-size:.75rem; font-weight:700;
+    flex-shrink:0; box-shadow:0 1px 3px #bfdbfe; }
+  h2 { font-size:1.25rem; font-weight:700; margin:0; }
+  section p { color:var(--gri6); font-size:.9rem; margin:.75rem 0 0; }
+  section strong { color:#1e293b; }
+
+  .tabel { border:1px solid var(--gri1); border-radius:1rem; overflow:hidden;
+    box-shadow:0 1px 2px rgba(15,23,42,.04); }
+  .rand { display:flex; gap:1rem; padding:.875rem 1.25rem; font-size:.875rem; background:#fff; }
+  .rand.alt { background:rgba(248,250,252,.6); }
+  .cheie { font-weight:600; color:var(--gri5); width:8rem; flex-shrink:0; font-size:.72rem;
+    text-transform:uppercase; letter-spacing:.05em; padding-top:.15rem; }
+  .val { color:#334155; font-weight:500; }
+  .nota { display:flex; gap:.75rem; border:1px solid #bfdbfe; background:#eff6ff; border-radius:.75rem;
+    padding:1rem; color:#1e3a8a; font-size:.875rem; margin-top:1rem; }
+
+  .carduri { display:grid; grid-template-columns:1fr; gap:.75rem; margin-top:.75rem; }
+  @media(min-width:40rem) { .carduri { grid-template-columns:1fr 1fr; } }
+  .card { border:1px solid; border-radius:.75rem; padding:1rem; }
+  .titlu-card { font-weight:700; font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; margin-bottom:.25rem; }
+  .text-card { font-size:.75rem; line-height:1.6; opacity:.75; }
+  .c-albastru { background:#eff6ff; border-color:#dbeafe; color:#1d4ed8; }
+  .c-violet { background:#f5f3ff; border-color:#ede9fe; color:#6d28d9; }
+  .c-verde { background:#ecfdf5; border-color:#d1fae5; color:#047857; }
+  .c-teal { background:#f0fdfa; border-color:#ccfbf1; color:#0f766e; }
+  .c-portocaliu { background:#fff7ed; border-color:#ffedd5; color:#c2410c; }
+
+  .cta { background:linear-gradient(135deg, var(--albastru), var(--indigo7)); border-radius:1rem;
+    padding:1.5rem; color:#fff; box-shadow:0 10px 15px -3px #dbeafe; margin-top:.75rem; }
+  .titlu-cta { font-weight:700; margin-bottom:.5rem; }
+  .cta p { color:#dbeafe; font-size:.875rem; margin:.5rem 0 0; }
+  .cta strong { color:#fff; }
+
+  footer { background:var(--ink); color:var(--gri4); margin-top:4rem; }
+  .footer-in { max-width:64rem; margin:0 auto; padding:3rem 1.5rem; font-size:.875rem; }
+  .footer-in .marca b { color:#fff; }
+  .footer-in p { max-width:24rem; line-height:1.6; }
+  .footer-jos { border-top:1px solid #1e293b; }
+  .footer-jos div { max-width:64rem; margin:0 auto; padding:1rem 1.5rem; font-size:.75rem; color:var(--gri5); }
+</style>
+</head>
+<body>
+
+<header class="bara"><div class="bara-in">
+  <div class="marca"><div><b>City Alert</b> <span>· sesizări către Primărie</span></div></div>
+  <nav><a href="#scop">Confidențialitate</a></nav>
+</div></header>
+
+<div class="erou"><div class="erou-in">
+  <div class="spranceana">Document legal</div>
+  <h1>Declarație de Confidențialitate</h1>
+  <div class="sub">Utilizarea datelor cu caracter personal · <strong style="color:#fff">Scope Systems SRL</strong></div>
+  <div class="pastila">Actualizat: 17 septembrie 2026 · Versiunea 2.0 · Aplicația City Alert (Android și iOS)</div>
+</div></div>
+
+<div class="continut">
+  <aside><div class="lipici">
+    <div class="titlu-toc">Cuprins</div>
+    <nav class="toc"><a href="#scop"><span class="nr-toc">1</span><span class="trunchi">Scopul acestei declarații</span></a>
+<a href="#operator"><span class="nr-toc">2</span><span class="trunchi">Operatorul de date</span></a>
+<a href="#contact"><span class="nr-toc">3</span><span class="trunchi">Date de contact</span></a>
+<a href="#functionare"><span class="nr-toc">4</span><span class="trunchi">Cum funcționează serviciul</span></a>
+<a href="#date"><span class="nr-toc">5</span><span class="trunchi">Date colectate</span></a>
+<a href="#roluri"><span class="nr-toc">6</span><span class="trunchi">Rolurile din aplicație</span></a>
+<a href="#colectare"><span class="nr-toc">7</span><span class="trunchi">Metode de colectare</span></a>
+<a href="#scopuri"><span class="nr-toc">8</span><span class="trunchi">Scopurile prelucrării</span></a>
+<a href="#temei"><span class="nr-toc">9</span><span class="trunchi">Temeiul legal</span></a>
+<a href="#marketing"><span class="nr-toc">10</span><span class="trunchi">Marketing și publicitate</span></a>
+<a href="#transfer"><span class="nr-toc">11</span><span class="trunchi">Transferul datelor</span></a>
+<a href="#securitate"><span class="nr-toc">12</span><span class="trunchi">Securitatea datelor</span></a>
+<a href="#retentie"><span class="nr-toc">13</span><span class="trunchi">Perioada de retenție</span></a>
+<a href="#stergere"><span class="nr-toc">14</span><span class="trunchi">Ștergerea contului</span></a>
+<a href="#drepturi"><span class="nr-toc">15</span><span class="trunchi">Drepturile dumneavoastră</span></a>
+<a href="#raspuns"><span class="nr-toc">16</span><span class="trunchi">Termenul de răspuns</span></a>
+<a href="#modificari"><span class="nr-toc">17</span><span class="trunchi">Modificări și obligația de informare</span></a></nav>
+  </div></aside>
+  <div class="sectiuni"><section id="scop"><div class="cap-sectiune"><div class="insigna">1</div><h2>Scopul acestei declarații</h2></div><p>Prezenta declarație explică modul în care sunt colectate și prelucrate datele cu caracter personal prin intermediul aplicației mobile <strong>City Alert</strong> (Android și iOS), publicată de Scope Systems SRL în calitate de furnizor tehnic. Prin aplicație, cetățenii semnalează primăriei probleme din oraș (gropi, iluminat public, gunoi și altele asemenea), iar primăria le rezolvă.</p></section>
+<section id="operator"><div class="cap-sectiune"><div class="insigna">2</div><h2>Operatorul de date</h2></div><p>Beneficiarul serviciului și, pentru sesizări, operatorul de date este primăria orașului în care vă creați contul („Primăria”). Aplicația poate deservi mai multe orașe; orașul se alege la înregistrare. <strong>Scope Systems SRL</strong> prelucrează datele în calitate de împuternicit și furnizor tehnic, în numele și pe baza contractului încheiat cu Primăria.</p></section>
+<section id="contact"><div class="cap-sectiune"><div class="insigna">3</div><h2>Date de contact</h2></div><div class="tabel">
+   <div class="rand"><div class="cheie">Denumire</div><div class="val">Scope Systems SRL</div></div>
+   <div class="rand alt"><div class="cheie">CUI</div><div class="val">41941093</div></div>
+   <div class="rand"><div class="cheie">Nr. Reg. Com.</div><div class="val">J2019016037407 · EUID ROONRC.J2019016037407</div></div>
+   <div class="rand alt"><div class="cheie">Înființată</div><div class="val">25 noiembrie 2019</div></div>
+   <div class="rand"><div class="cheie">Email</div><div class="val"><a href="mailto:dev-team@scopesystems.ro">dev-team@scopesystems.ro</a></div></div>
+   <div class="rand alt"><div class="cheie">Sediu social</div><div class="val">Șos. Pipera 14, Et. 3, cod 014255, București</div></div>
+ </div>
+ <div class="nota"><div>Plângerile privind prelucrarea datelor pot fi adresate și Autorității Naționale de Supraveghere a Prelucrării Datelor cu Caracter Personal (<a href="https://www.dataprotection.ro">ANSPDCP</a>).</div></div></section>
+<section id="functionare"><div class="cap-sectiune"><div class="insigna">4</div><h2>Cum funcționează serviciul</h2></div><p>Cetățenii își creează singuri contul din aplicație, alegând orașul, și trimit sesizări către Primărie: aleg o categorie, descriu problema, pot atașa fotografii și indică locația. Sesizarea trece prin mai multe stări, iar cetățeanul este informat despre evoluția ei. Angajații Primăriei rezolvă sesizările pe teren, iar conducerea Primăriei urmărește situația orașului prin statistici agregate. Conturile personalului Primăriei sunt create de Primărie, nu din aplicație.</p></section>
+<section id="date"><div class="cap-sectiune"><div class="insigna">5</div><h2>Date colectate</h2></div><div class="carduri">
+   <div class="card c-albastru"><div class="titlu-card">Date de cont</div><div class="text-card">nume, prenume, adresă de e-mail, telefon (opțional pentru cetățean; pentru personal, furnizat de Primărie), parolă (gestionată de serviciul de autentificare, nu o vedem), rol, orașul</div></div>
+   <div class="card c-violet"><div class="titlu-card">Sesizări</div><div class="text-card">categorie, descriere, fotografii (opțional, făcute cu camera sau alese din galerie), locația problemei (aleasă pe hartă sau preluată din poziția telefonului), data și ora, stările prin care trece sesizarea</div></div>
+   <div class="card c-portocaliu"><div class="titlu-card">Locația telefonului</div><div class="text-card">la cetățean, doar cât timp aplicația este deschisă, pentru a centra harta și a propune locația sesizării; la rolul Intervenție, poziția echipei se transmite Primăriei (dispecerat) în mod continuu cât timp o rută de intervenție este pornită din aplicație, inclusiv cu aplicația în fundal</div></div>
+   <div class="card c-verde"><div class="titlu-card">Gradul de încredere</div><div class="text-card">contoare de sesizări confirmate, neconfirmate și false ale cetățeanului, folosite pentru prioritizare și prevenirea abuzului; sunt statistici, nu conținut</div></div>
+   <div class="card c-teal"><div class="titlu-card">Tehnice</div><div class="text-card">adresa IP și jurnale tehnice pe servere (pentru securitate și depanare), modelul telefonului și versiunea aplicației; jetoane de sesiune păstrate criptat pe telefon. Componenta de hartă (Google Maps SDK) colectează, conform declarației Google, un identificator de dispozitiv și date de diagnostic (erori, performanță, interacțiuni cu harta), fără urmărire publicitară</div></div>
+ </div>
+ <p><strong>Despre locație:</strong> pe Android, cât timp urmărirea echipei de intervenție este activă, apare o notificare persistentă; pe iOS, indicatorul de sistem. Urmărirea se oprește automat la încheierea rutei sau la deconectare. <strong>Nu colectăm</strong> locația în afara situațiilor de mai sus și niciodată locația cetățenilor cu aplicația în fundal.</p></section>
+<section id="roluri"><div class="cap-sectiune"><div class="insigna">6</div><h2>Rolurile din aplicație</h2></div><p><strong>Cetățean</strong> — își creează singur contul din aplicație (nume, prenume, e-mail, parolă, telefon opțional) și trimite sesizări către Primărie.</p><p><strong>Intervenție</strong> — angajați ai Primăriei care rezolvă sesizările pe teren; conturile sunt create de Primărie.</p><p><strong>Primar / conducere</strong> — vede situația orașului, statistici agregate și echipele pe hartă; conturile sunt create de Primărie.</p><p>Nu există conturi pentru copii. Serviciul se adresează <strong>adulților</strong>; nu colectăm cu bună știință date de la persoane sub 18 ani, iar dacă aflăm că un cont aparține unui minor fără acordul părintelui sau al tutorelui, îl închidem și ștergem datele personale asociate.</p></section>
+<section id="colectare"><div class="cap-sectiune"><div class="insigna">7</div><h2>Metode de colectare</h2></div><p>Date furnizate direct de dumneavoastră (la înregistrare și în formularul de sesizare), date generate de utilizarea serviciului (stările sesizărilor, validări) și date colectate automat de pe dispozitiv (poziția telefonului, doar în situațiile descrise la punctul 5; fotografiile, doar atunci când le atașați dumneavoastră).</p></section>
+<section id="scopuri"><div class="cap-sectiune"><div class="insigna">8</div><h2>Scopurile prelucrării</h2></div><p>Primirea și rezolvarea sesizărilor; informarea cetățeanului despre starea sesizării; planificarea și urmărirea intervențiilor pe teren; statistici agregate pentru conducerea Primăriei; prevenirea abuzurilor și securitatea serviciului.</p></section>
+<section id="temei"><div class="cap-sectiune"><div class="insigna">9</div><h2>Temeiul legal</h2></div><p>Pentru Primărie, îndeplinirea unei sarcini de interes public (art. 6 alin. 1 lit. e GDPR). Pentru cont, executarea contractului, respectiv a termenilor de utilizare (art. 6 alin. 1 lit. b GDPR). Pentru securitate și prevenirea abuzurilor, interesul legitim (art. 6 alin. 1 lit. f GDPR). Fotografiile și locația sunt furnizate voluntar de cetățean odată cu sesizarea.</p></section>
+<section id="marketing"><div class="cap-sectiune"><div class="insigna">10</div><h2>Marketing și publicitate</h2></div><p>Aplicația <strong>nu afișează reclame</strong>, nu folosește datele în scop de marketing, nu trimite comunicări comerciale, <strong>nu vinde sau închiriază</strong> date către terți și nu folosește instrumente de urmărire publicitară.</p></section>
+<section id="transfer"><div class="cap-sectiune"><div class="insigna">11</div><h2>Transferul datelor</h2></div><p>Datele sunt prelucrate la împuterniciți cu garanții contractuale GDPR: <strong>Supabase</strong> (bază de date și autentificare; centre de date în Uniunea Europeană), <strong>Cloudflare</strong> (protecția rețelei și stocarea fotografiilor în serviciul R2, cu jurisdicție în Uniunea Europeană), <strong>OVH</strong> (găzduirea serverului aplicației; centru de date în Regatul Unit, țară care beneficiază de o decizie de adecvare a Comisiei Europene) și <strong>Google Maps Platform</strong> (afișarea hărții prin Google Maps SDK: Google primește adresa IP și zona de hartă afișată și colectează un identificator de dispozitiv și date de diagnostic — erori, performanță, interacțiuni cu harta — în scop de analiză a funcționării serviciului, fără urmărire publicitară, conform <a href="https://policies.google.com/privacy" rel="noopener">politicii de confidențialitate Google</a>).</p><p>Datele se transmit Primăriei, în limitele rolului ei. Nu transferăm date către alți terți.</p></section>
+<section id="securitate"><div class="cap-sectiune"><div class="insigna">12</div><h2>Securitatea datelor</h2></div><p>Comunicații criptate (HTTPS/TLS), acces restricționat pe bază de cont și rol, reguli de acces aplicate la nivelul bazei de date (Row Level Security). Parolele sunt gestionate de serviciul de autentificare — nu le stocăm în clar și nu le putem vedea. Fotografiile sunt accesibile doar prin linkuri semnate, cu termen de valabilitate.</p></section>
+<section id="retentie"><div class="cap-sectiune"><div class="insigna">13</div><h2>Perioada de retenție</h2></div><p>Datele contului se păstrează cât timp contul există. Sesizările se păstrează cât timp Primăria le ține în evidența proprie; după ștergerea contului, ele rămân fără numele autorului. Pozițiile echipelor de intervenție se păstrează ca parte a evidenței intervențiilor Primăriei. Jurnalele tehnice se păstrează cel mult 90 de zile.</p></section>
+<section id="stergere"><div class="cap-sectiune"><div class="insigna">14</div><h2>Ștergerea contului</h2></div><div class="cta">
+   <div class="titlu-cta">Vă puteți șterge oricând contul, direct din aplicație</div>
+   <p>Deschideți <strong>Profil</strong>, alegeți <strong>„Îmi șterg contul”</strong>, introduceți parola și confirmați. Efectul este imediat și definitiv.</p>
+   <p>Numele, prenumele, telefonul, fotografia de profil și adresa de e-mail sunt eliminate; contul este închis permanent și nu mai poate fi folosit; sesizările trimise rămân în evidența Primăriei, fără numele dumneavoastră; adresa de e-mail devine liberă pentru un cont nou.</p>
+   <p>Alternativ, puteți trimite cererea prin e-mail la <strong>dev-team@scopesystems.ro</strong>, de pe adresa asociată contului. Răspundem în cel mult 30 de zile.</p>
+   <p>Conturile personalului (Intervenție, Primar) se închid de către Primărie.</p>
+ </div></section>
+<section id="drepturi"><div class="cap-sectiune"><div class="insigna">15</div><h2>Drepturile dumneavoastră</h2></div><p>Acces, rectificare, ștergere, restricționare, portabilitate și opoziție, conform GDPR. Le puteți exercita la adresa de contact de la punctul 3. Pentru protecția datelor, putem cere verificarea identității înainte de a da curs unei solicitări. Aveți, de asemenea, dreptul de a depune o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP).</p></section>
+<section id="raspuns"><div class="cap-sectiune"><div class="insigna">16</div><h2>Termenul de răspuns</h2></div><p>Răspundem solicitărilor legate de datele personale în cel mult 30 de zile.</p></section>
+<section id="modificari"><div class="cap-sectiune"><div class="insigna">17</div><h2>Modificări și obligația de informare</h2></div><p>Orice modificare a acestei declarații se publică pe această pagină, cu actualizarea datei din antet. Vă rugăm să ne notificați orice modificare a datelor personale furnizate.</p></section></div>
+</div>
+
+<footer>
+  <div class="footer-in">
+    <div class="marca" style="margin-bottom:1rem"><b>City Alert</b></div>
+    <p>Sesizări către Primărie: cetățenii semnalează problemele din oraș, iar Primăria le rezolvă. Un produs <span style="color:#cbd5e1">Scope Systems SRL</span>.</p>
+  </div>
+  <div class="footer-jos"><div>© 2026 Scope Systems SRL · CUI 41941093 · Șos. Pipera 14, Et. 3, București</div></div>
+</footer>
+
+</body>
+</html>
